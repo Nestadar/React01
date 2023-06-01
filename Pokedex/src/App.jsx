@@ -46,8 +46,7 @@ function App() {
   return (
     <div>
       <PokemonCard pokemon = {pokemonList[pokeCount]}/>
-      {pokeCount < pokemonList.length -1 ? <button onClick={handleClickNext}>Next</button> : 
-      <p></p>}
+      {pokeCount < pokemonList.length -1 ? <button onClick={handleClickNext}>Next</button> : <p></p>}
       {pokeCount > 0 ? <button onClick={handleClickPrevious}>Previous</button> : <p></p>}
     </div>
   );
