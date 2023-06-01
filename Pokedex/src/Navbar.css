@@ -1,0 +1,7 @@
+.button-container {
+    display: flex;
+  }
+  
+  .button-wrapper {
+    margin-right: 10px;
+  }

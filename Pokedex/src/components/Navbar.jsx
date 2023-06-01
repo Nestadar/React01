@@ -1,28 +1,26 @@
 function Navbar(props) {
-    const {pokeCount, pokemonList, setPokeCount} = props
-    
-    const handleClickNext = () => {
-        setPokeCount(pokeCount +1)
-    };  
-    
-    const handleClickPrevious = () => {
-          setPokeCount(pokeCount -1)
-      }; 
+  const {pokemonList, selectedPokemon, setSelectedPokemon} = props;
+  
 
-      const currentPokemon = pokemonList[pokeCount];
+  const handlePokemonClick = (pokemon) => {
+    setSelectedPokemon(pokemon);
+  };
 
-    // if (currentPokemon.name === "pikachu") {
-    //   alert("pika pikachu");
-    // }
-
- return (
-        <>
-          {pokeCount > 0 ? <button onClick={handleClickPrevious}>Previous</button> : <p></p>}
-          {pokeCount< pokemonList.length - 1 ? <button onClick={handleClickNext}>Next</button> : <p></p>}
-        </> 
-        )
-     
-};
-
+  return (
+    <div>
+      {pokemonList.map((pokemon, index) => (
+        <button key={index} onClick={() => handlePokemonClick(pokemon)}>
+          {pokemon.name}
+        </button>
+      ))}
+      {selectedPokemon && (
+        <div>
+          <h3>{selectedPokemon.name}</h3>
+          <img src={selectedPokemon.imgSrc} alt={selectedPokemon.name} />
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default Navbar;
