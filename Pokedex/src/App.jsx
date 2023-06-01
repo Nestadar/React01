@@ -2,15 +2,22 @@ import { useState } from 'react'
 import './App.css'
 import PokemonCard from './components/PokemonCard'
 import Navbar from './components/Navbar';
+import { useEffect } from 'react';
 
 
 
 function App() {
 
-  const [pokeCount, setPokeCount] = useState(0);
-
+  useEffect(
+    () =>  {
+      alert("hello pokemon trainer :)");
+    }, 
+    []
+ );
   
 
+const [pokeCount, setPokeCount] = useState(0);
+   
   const pokemonList = [
     {
         name: "bulbasaur",
@@ -37,14 +44,21 @@ function App() {
       },
     ];
 
+    const currentPokemon = pokemonList[pokeCount];
+
+ useEffect(
+  () => {
+  if (currentPokemon.name === "pikachu") {
+    alert("pika pikachu");
+  }
+});
+
   return (
     <div>
       <PokemonCard pokemon = {pokemonList[pokeCount]}/>
       <Navbar 
        pokeCount = {pokeCount}
        setPokeCount = {setPokeCount}
-      //  handleClickPrevious = {handleClickPrevious}
-      //  handleClickNext = {handleClickNext}
        pokemonList= {pokemonList}/>
     </div>
   );

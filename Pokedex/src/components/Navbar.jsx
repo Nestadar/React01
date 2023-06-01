@@ -9,6 +9,12 @@ function Navbar(props) {
           setPokeCount(pokeCount -1)
       }; 
 
+      const currentPokemon = pokemonList[pokeCount];
+
+    // if (currentPokemon.name === "pikachu") {
+    //   alert("pika pikachu");
+    // }
+
  return (
         <>
           {pokeCount > 0 ? <button onClick={handleClickPrevious}>Previous</button> : <p></p>}
